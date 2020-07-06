@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Cepres.Services.API/obj
+/Cepres.Services.API/bin/Debug/netcoreapp3.1
+/Cepres.Service
+/Cepres.Domain
+/Cepres.Data
+/Cepres.Common
+/.vs/Cepres/v16
