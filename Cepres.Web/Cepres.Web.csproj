@@ -1,0 +1,101 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\App.js" />
+    <None Remove="ClientApp\src\components\Home.tsx" />
+    <None Remove="ClientApp\src\components\Patient\IMetaData.tsx" />
+    <None Remove="ClientApp\src\components\Patient\IPatient.tsx" />
+    <None Remove="ClientApp\src\components\Patient\PatientCreateOrUpdate.tsx" />
+    <None Remove="ClientApp\src\components\Patient\PatientList.tsx" />
+    <None Remove="ClientApp\src\components\Patient\PatientReport.tsx" />
+    <None Remove="ClientApp\src\components\Patient\_PatientInfo.tsx" />
+    <None Remove="ClientApp\src\components\Patient\_PatientMetaData.tsx" />
+    <None Remove="ClientApp\src\components\Record\RecordCreateOrUpdate.tsx" />
+    <None Remove="ClientApp\src\components\Record\RecordList.tsx" />
+    <None Remove="ClientApp\src\components\Record\_RecordInfo.tsx" />
+    <None Remove="ClientApp\src\Helper.tsx" />
+    <None Remove="ClientApp\src\model\IPagination.tsx" />
+    <None Remove="ClientApp\src\model\IPatientCreateOrUpdate.tsx" />
+    <None Remove="ClientApp\src\model\IRecordCreateOrUpdate.tsx" />
+    <None Remove="ClientApp\src\services\MetaDataService.tsx" />
+    <None Remove="ClientApp\src\services\PatientService.tsx" />
+    <None Remove="ClientApp\src\services\RecordService.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\App.js" />
+    <TypeScriptCompile Include="ClientApp\src\components\Home\Home.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Patient\PatientCreateOrUpdate.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Patient\PatientList.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Report\Report.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Patient\_PatientInfo.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Patient\_PatientMetaData.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Record\RecordCreateOrUpdate.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Record\RecordList.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\components\Record\_RecordInfo.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\Helper.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\model\IPagination.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\model\IRecordCreateOrUpdate.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\model\IPatientCreateOrUpdate.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\services\MetaDataService.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\services\RecordService.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\services\PatientService.tsx" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)build\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>

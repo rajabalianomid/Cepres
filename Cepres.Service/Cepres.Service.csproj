@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cepres.Data\Cepres.Data.csproj" />
+    <ProjectReference Include="..\Cepres.Domain\Cepres.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
