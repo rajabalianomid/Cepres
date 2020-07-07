@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Cepres.Service.API
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class HomeController : ControllerBase
     {
         [HttpGet("")]

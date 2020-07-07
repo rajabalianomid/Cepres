@@ -9,3 +9,6 @@
 /Cepres.Data
 /Cepres.Common
 /.vs/Cepres/v16
+/Cepres.IdentityServer/bin/Debug/netcoreapp3.1
+/Cepres.IdentityServer/obj
+/.vs/Cepres

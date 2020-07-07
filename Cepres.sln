@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cepres.Web", "Cepres.Web\Ce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cepres.Common", "Cepres.Common\Cepres.Common.csproj", "{342D61CD-1EA8-4B36-A45D-64928DF3B3A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepres.Data", "Cepres.Data\Cepres.Data.csproj", "{62D80BF8-530E-44D3-892B-EE9A83A2E664}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cepres.Data", "Cepres.Data\Cepres.Data.csproj", "{62D80BF8-530E-44D3-892B-EE9A83A2E664}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepres.Domain", "Cepres.Domain\Cepres.Domain.csproj", "{D60699D1-3369-49E7-AEB6-872F7D827D1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cepres.Domain", "Cepres.Domain\Cepres.Domain.csproj", "{D60699D1-3369-49E7-AEB6-872F7D827D1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepres.Service", "Cepres.Service\Cepres.Service.csproj", "{D056AC23-4E2F-43E9-9041-5108325E8D5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cepres.Service", "Cepres.Service\Cepres.Service.csproj", "{D056AC23-4E2F-43E9-9041-5108325E8D5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepres.Services.API", "Cepres.Services.API\Cepres.Services.API.csproj", "{B8A51D74-F92F-44C3-B841-74AF78401381}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cepres.Services.API", "Cepres.Services.API\Cepres.Services.API.csproj", "{B8A51D74-F92F-44C3-B841-74AF78401381}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepres.IdentityServer", "Cepres.IdentityServer\Cepres.IdentityServer.csproj", "{50999A47-C1AA-44B2-BF09-161A00D08375}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{B8A51D74-F92F-44C3-B841-74AF78401381}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8A51D74-F92F-44C3-B841-74AF78401381}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8A51D74-F92F-44C3-B841-74AF78401381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50999A47-C1AA-44B2-BF09-161A00D08375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50999A47-C1AA-44B2-BF09-161A00D08375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50999A47-C1AA-44B2-BF09-161A00D08375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50999A47-C1AA-44B2-BF09-161A00D08375}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
