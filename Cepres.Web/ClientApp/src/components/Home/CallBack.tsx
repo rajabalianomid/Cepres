@@ -15,7 +15,6 @@ export class CallBack extends Component<{}, ICallBackState> {
     }
     componentDidMount() {
         new UserManager({ response_mode: "query" }).signinRedirectCallback().then(response => {
-            debugger;
             this.setState({
                 user: response
             });

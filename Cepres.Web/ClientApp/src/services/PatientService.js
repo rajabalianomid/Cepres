@@ -13,7 +13,6 @@ var PatientService = /** @class */ (function () {
         return this.apiService.callApi("/" + this.controller + "/getByName/" + name, 'get');
     };
     PatientService.prototype.getAll = function (pagingData) {
-        debugger;
         return this.apiService.callApi("/" + this.controller + "/getall", 'post', pagingData);
     };
     PatientService.prototype.report = function () {
@@ -23,7 +22,6 @@ var PatientService = /** @class */ (function () {
         return this.apiService.callApi("/" + this.controller + "/getSimilar/" + id, 'get');
     };
     PatientService.prototype.create = function (data) {
-        debugger;
         return this.apiService.callApi("/" + this.controller + "/add", 'post', data);
     };
     PatientService.prototype.update = function (data) {

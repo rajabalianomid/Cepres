@@ -49,7 +49,6 @@ export class _PatientMetaData extends Component<{ patientId: any, submitted: boo
     }
     saveMetaDate(e: any) {
         e.preventDefault();
-        debugger;
         const form = e.currentTarget;
         if (form.checkValidity() === false) {
             e.preventDefault();
@@ -93,7 +92,6 @@ export class _PatientMetaData extends Component<{ patientId: any, submitted: boo
         });
     }
     getAllMetaData() {
-        debugger;
         MetaDataService.getAllByPatientId(this.props.patientId)
             .then(response => {
                 this.setState({
@@ -108,7 +106,6 @@ export class _PatientMetaData extends Component<{ patientId: any, submitted: boo
     }
     removeMetaData(id: number) {
         new Helper().confirmation('remove confirm', `are you sure to delete item with id:${id}`, () => {
-            debugger;
             MetaDataService.delete(id)
                 .then(response => {
                     console.log(response.data);

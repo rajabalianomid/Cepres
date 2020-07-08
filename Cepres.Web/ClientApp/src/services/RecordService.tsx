@@ -14,7 +14,6 @@ class RecordService {
         return this.apiService.callApi(`/${this.controller}/get/${id}`, 'get');
     }
     create(data: any) {
-        debugger;
         return this.apiService.callApi(`/${this.controller}/add`, 'post', data);
     }
     update(data: any) {

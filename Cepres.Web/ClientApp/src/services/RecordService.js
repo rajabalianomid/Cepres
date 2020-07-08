@@ -13,7 +13,6 @@ var RecordService = /** @class */ (function () {
         return this.apiService.callApi("/" + this.controller + "/get/" + id, 'get');
     };
     RecordService.prototype.create = function (data) {
-        debugger;
         return this.apiService.callApi("/" + this.controller + "/add", 'post', data);
     };
     RecordService.prototype.update = function (data) {

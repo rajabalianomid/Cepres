@@ -37,7 +37,6 @@ export class _RecordInfo extends Component<{ recordId: any }, IRecordState> {
         this.getPatient = this.getPatient.bind(this);
     }
     componentDidMount() {
-        debugger;
         if (this.state.id > 0) {
             RecordService.get(this.state.id)
                 .then(response => {
@@ -62,7 +61,6 @@ export class _RecordInfo extends Component<{ recordId: any }, IRecordState> {
         }
     }
     onChangeName(e: any) {
-        debugger;
         console.log(e);
         const currentRecord = this.state.currentRecord;
         currentRecord.patientId = e.value;
@@ -88,7 +86,6 @@ export class _RecordInfo extends Component<{ recordId: any }, IRecordState> {
         });
     }
     onChangeBill(e: any) {
-        debugger;
         var regex = /^[0-9]+(\.[0-9]{1,2})?$/;
         const currentRecord = this.state.currentRecord;
         if (regex.test(e)) {
@@ -103,7 +100,6 @@ export class _RecordInfo extends Component<{ recordId: any }, IRecordState> {
     }
     saveRecord(e: any) {
         e.preventDefault();
-        debugger;
         const form = e.currentTarget;
         if (form.checkValidity() === false) {
             e.preventDefault();
@@ -121,7 +117,6 @@ export class _RecordInfo extends Component<{ recordId: any }, IRecordState> {
         };
 
         if (form.checkValidity() === true) {
-            debugger;
             var service = this.state.id > 0 ? RecordService.update(data) : RecordService.create(data);
             service
                 .then(response => {

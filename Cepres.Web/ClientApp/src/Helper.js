@@ -5,7 +5,6 @@ var Helper = /** @class */ (function () {
     function Helper() {
     }
     Helper.formatTime = function (time) {
-        debugger;
         if (time != null) {
             time = new Date(time);
             return typeof time == "object" ? time.toLocaleDateString() : "";
@@ -13,7 +12,6 @@ var Helper = /** @class */ (function () {
         return null;
     };
     Helper.nullableTimeToTime = function (time) {
-        debugger;
         if (time != null) {
             return new Date(time);
         }

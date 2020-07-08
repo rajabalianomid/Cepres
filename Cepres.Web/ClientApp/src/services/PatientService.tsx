@@ -14,7 +14,6 @@ class PatientService {
         return this.apiService.callApi(`/${this.controller}/getByName/${name}`, 'get');
     }
     getAll(pagingData: IPagination<IListPatient[]>) {
-        debugger;
         return this.apiService.callApi(`/${this.controller}/getall`, 'post', pagingData);
     }
     report() {
@@ -24,7 +23,6 @@ class PatientService {
         return this.apiService.callApi(`/${this.controller}/getSimilar/${id}`, 'get');
     }
     create(data: any) {
-        debugger;
         return this.apiService.callApi(`/${this.controller}/add`, 'post', data);
     }
     update(data: any) {

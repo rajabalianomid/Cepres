@@ -32,7 +32,6 @@ export class _PatientInfo extends Component<{ onCallBackPatinetSubmited: any, pa
         this.isValidDateOfBirth = this.isValidDateOfBirth.bind(this);
     }
     componentDidMount() {
-        debugger;
         if (this.props.patientId > 0) {
             PatientService.get(this.props.patientId)
                 .then(response => {
@@ -82,7 +81,6 @@ export class _PatientInfo extends Component<{ onCallBackPatinetSubmited: any, pa
         });
     }
     onChangeDateOfBirth(e: any) {
-        debugger;
         const currentPatient = this.state.currentPatient;
         currentPatient.dateOfBirth = e.target.value;
         this.setState({
@@ -91,7 +89,6 @@ export class _PatientInfo extends Component<{ onCallBackPatinetSubmited: any, pa
     }
     savePatient(e: any) {
         e.preventDefault();
-        debugger;
         const form = e.currentTarget;
         if (form.checkValidity() === false) {
             e.preventDefault();
@@ -108,7 +105,6 @@ export class _PatientInfo extends Component<{ onCallBackPatinetSubmited: any, pa
         };
 
         if (form.checkValidity() === true) {
-            debugger;
             var service = this.state.id > 0 ? PatientService.update(data) : PatientService.create(data);
             service
                 .then(response => {

@@ -1,7 +1,6 @@
 ﻿import { confirmAlert } from 'react-confirm-alert';
 export class Helper {
     public static formatTime(time?: any) {
-        debugger;
         if (time != null) {
             time = new Date(time);
             return typeof time == "object" ? time.toLocaleDateString() : "";
@@ -9,7 +8,6 @@ export class Helper {
         return null;
     }
     public static nullableTimeToTime(time?: any) {
-        debugger;
         if (time != null) {
             return new Date(time);
         }

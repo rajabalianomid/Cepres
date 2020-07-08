@@ -11,7 +11,6 @@ export class ApiService {
 
     public callApi(endpoint: string, method: string, data?: any): Promise<any> {
         return this.authService.getUser().then(user => {
-            debugger;
             if (user && user.access_token) {
                 return this._callApi(endpoint, method, user.access_token, data).catch(error => {
                     if (error.response.status === 401) {

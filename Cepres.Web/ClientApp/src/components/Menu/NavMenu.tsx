@@ -18,18 +18,15 @@ export class NavMenu extends Component<{}, any> {
         };
     }
     public componentDidMount() {
-        debugger;
         this.getUser();
     }
     public login() {
-        debugger;
         AuthService.login();
     };
     public logout() {
         AuthService.logout();
     };
     public getUser() {
-        debugger;
         AuthService.getUser().then(user => {
             this.setState({ user });
         });

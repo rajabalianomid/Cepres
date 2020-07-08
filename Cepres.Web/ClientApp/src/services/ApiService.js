@@ -9,7 +9,6 @@ var ApiService = /** @class */ (function () {
     ApiService.prototype.callApi = function (endpoint, method, data) {
         var _this = this;
         return this.authService.getUser().then(function (user) {
-            debugger;
             if (user && user.access_token) {
                 return _this._callApi(endpoint, method, user.access_token, data).catch(function (error) {
                     if (error.response.status === 401) {

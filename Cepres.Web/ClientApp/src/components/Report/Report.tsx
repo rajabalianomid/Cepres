@@ -28,7 +28,6 @@ export class Report extends Component<{}, IPatintReportState> {
         this.getAllMetaData();
     }
     getAllPatient() {
-        debugger;
         PatientService.report()
             .then(response => {
                 this.setState({
@@ -41,7 +40,6 @@ export class Report extends Component<{}, IPatintReportState> {
             });
     }
     getAllMetaData() {
-        debugger;
         MetaDataService.report()
             .then(response => {
                 this.setState({
@@ -132,8 +130,6 @@ export class Report extends Component<{}, IPatintReportState> {
         </>);
     }
     RenderMetaData(metadata: IGeneral[]) {
-        debugger;
-
         return (<>
             {
                 this.state.metadata.length == 0 ? <div></div> :

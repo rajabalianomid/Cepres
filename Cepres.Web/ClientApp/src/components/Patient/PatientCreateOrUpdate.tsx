@@ -17,7 +17,6 @@ export class PatientCreateOrUpdate extends Component<{}, IPatientCreateOrUpdate>
         };
     }
     onCallBackPatinetSubmited = (patientId: any, submitted: boolean = true) => {
-        debugger;
         this.setState({
             id: patientId,
             submitted: submitted

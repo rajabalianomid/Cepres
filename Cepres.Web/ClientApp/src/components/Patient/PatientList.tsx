@@ -36,7 +36,6 @@ export class PatientList extends Component<{}, IListPatintState> {
         this.getAllPatient();
     }
     getAllPatient() {
-        debugger;
         PatientService.getAll(this.state.paging)
             .then(response => {
                 this.setState({
@@ -52,20 +51,17 @@ export class PatientList extends Component<{}, IListPatintState> {
         let step = event.target.textContent.includes("›") ? 1 : -1;
         let index = this.state.paging.pageIndex;
         let max = this.state.paging.pageCount;
-        debugger;
         if (index + step > -1 && index + step < max) {
             this.state.paging.pageIndex += step;
             this.getAllPatient();
         }
     }
     onChangeSort(event: any) {
-        debugger;
         this.state.paging.sort = event.target.value;
         this.state.paging.pageIndex = 0;
         this.getAllPatient();
     }
     onChangePageSize(event: any) {
-        debugger;
         this.state.paging.pageSize = Number(event.target.value);
         this.state.paging.pageIndex = 0;
         this.getAllPatient();
@@ -75,7 +71,6 @@ export class PatientList extends Component<{}, IListPatintState> {
         history.push('/PatientCreateOrUpdate', { patientId: id });
     }
     removePatient(id: number) {
-        debugger;
         new Helper().confirmation('remove confirm', `are you sure to delete item with id: ${id}`, () => {
             PatientService.delete(id)
                 .then(response => {
