@@ -38,8 +38,8 @@ export class _RecordInfo extends Component<{ recordId: any }, IRecordState> {
     }
     componentDidMount() {
         debugger;
-        if (this.props.recordId > 0) {
-            RecordService.get(this.props.recordId)
+        if (this.state.id > 0) {
+            RecordService.get(this.state.id)
                 .then(response => {
                     if (response.data.status) {
                         this.setState({

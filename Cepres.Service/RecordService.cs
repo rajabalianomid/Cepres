@@ -25,7 +25,7 @@ namespace Cepres.Service
                 record.TimeOfEntry = DateTime.UtcNow;
                 return _repositoryRecord.Insert(record);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new ServiceException("occour a problem, please try later!");
             }
@@ -34,9 +34,14 @@ namespace Cepres.Service
         {
             try
             {
+                var found = Get(record.Id);
+                if (found != null)
+                {
+                    record.TimeOfEntry = found.TimeOfEntry;
+                }
                 return _repositoryRecord.Update(record);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new ServiceException("occour a problem, please try later!");
             }

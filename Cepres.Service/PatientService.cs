@@ -70,7 +70,7 @@ namespace Cepres.Service
             {
                 return _repositoryPatient.GetAllPatient(pagination);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new ServiceException("occour a problem, please try later!");
             }
@@ -81,7 +81,7 @@ namespace Cepres.Service
             {
                 return _repositoryPatient.Report();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new ServiceException("occour a problem, please try later!");
             }
@@ -92,7 +92,7 @@ namespace Cepres.Service
             {
                 return _repositoryPatient.GetSimilar(id);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new ServiceException("occour a problem, please try later!");
             }

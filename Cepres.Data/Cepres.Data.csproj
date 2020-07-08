@@ -11,10 +11,6 @@
     <ProjectReference Include="..\Cepres.Common\Cepres.Common.csproj" />
     <ProjectReference Include="..\Cepres.Domain\Cepres.Domain.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="SampleData\" />
-  </ItemGroup>
   
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
