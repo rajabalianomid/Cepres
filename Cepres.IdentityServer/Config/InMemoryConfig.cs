@@ -35,28 +35,29 @@ namespace Cepres.IdentityServer.Config
               new Client
               {
                   ClientId = "cepres.services.api",
-                  ClientSecrets = new List<Secret> {new Secret("cepres".Sha256())}, // change me!
-                  
+                  ClientSecrets = new List<Secret> {new Secret("cepres".Sha256())}, // change me!   
                   AllowedGrantTypes = GrantTypes.ClientCredentials,
                   AllowedScopes = {"cepres.services.api" }
-              }
-          };
+              },
+              new Client
+                {
+                    ClientId = "spa",
+                    ClientName = "React Client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequireClientSecret = false,
 
-        //public static IEnumerable<ApiResource> GetApiResources()
-        //{
-        //    return new[]
-        //    {
-        //        new ApiResource
-        //        {
-        //            Name = "Cepres.Services.API",
-        //            DisplayName = "Cepres Services API #1",
-        //            Description = "Allow the application to access Cepres Services API #1 on your behalf",
-        //            Scopes = new List<string> {"cepres.services.api"},
-        //            ApiSecrets = new List<Secret> {new Secret("ScopeSecret".Sha256())},
-        //            UserClaims = new List<string> {"role"}
-        //        }
-        //    };
-        //}
+                    RedirectUris =           { "http://localhost:3000/callback" },
+                    PostLogoutRedirectUris = { "http://localhost:3000/" },
+                    AllowedCorsOrigins =     { "http://localhost:3000" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "cepres.services.api"
+                    }
+                }
+          };
 
         public static IEnumerable<ApiScope> GetApiScopes()
         {
