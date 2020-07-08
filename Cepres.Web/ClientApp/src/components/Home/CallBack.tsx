@@ -32,7 +32,7 @@ export class CallBack extends Component<{}, ICallBackState> {
                 {
                     (
                         this.state.user
-                            ? <><Redirect to="/" /></>
+                            ? <><Redirect to="/?refresh=true" /></>
                             : <h1>Authentification callback processing...</h1>
                     )
                 }

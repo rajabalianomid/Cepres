@@ -8,9 +8,6 @@ import AuthService from '../../services/AuthService';
 
 export class NavMenu extends Component<{}, any> {
     static displayName = NavMenu.name;
-    //public authService: AuthService;
-    //public apiService: ApiService;
-    private shouldCancel: boolean;
 
     constructor(props: any) {
         super(props);
@@ -19,11 +16,9 @@ export class NavMenu extends Component<{}, any> {
         this.state = {
             collapsed: true
         };
-        //this.authService = new AuthService();
-        //this.apiService = new ApiService();
-        this.shouldCancel = false;
     }
     public componentDidMount() {
+        debugger;
         this.getUser();
     }
     public login() {
@@ -34,11 +29,9 @@ export class NavMenu extends Component<{}, any> {
         AuthService.logout();
     };
     public getUser() {
+        debugger;
         AuthService.getUser().then(user => {
-            debugger;
-            if (!this.shouldCancel) {
-                this.setState({ user });
-            }
+            this.setState({ user });
         });
     };
     toggleNavbar() {
@@ -61,19 +54,23 @@ export class NavMenu extends Component<{}, any> {
                 <NavItem>
                     <NavLink tag={Link} className="text-dark" to="/report">Report</NavLink>
                 </NavItem>
-               </ul>)
+            </ul>)
             : (<ul className="navbar-nav flex-grow">
                 <NavItem>
                     <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                 </NavItem>
-               </ul>);
+            </ul>);
         return (
             <header>
                 <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
                     <Container>
-                        <NavbarBrand tag={Link} to="/">Cepres.Web</NavbarBrand>
+                        <NavbarBrand tag={Link} to="/">Cepres Web</NavbarBrand>
                         <ul className="navbar-nav flex-grow">
-                            <button className="btn btn-outline-success my-2 my-sm-0" onClick={this.login}>Login</button>
+                            {
+                                this.state.user ?
+                                    (<button className="btn btn-outline-danger my-2 my-sm-0" onClick={this.logout}>Logout</button>) :
+                                    (<button className="btn btn-outline-success my-2 my-sm-0" onClick={this.login}>Login</button>)
+                            }
                         </ul>
                         <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
