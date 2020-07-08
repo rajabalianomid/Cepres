@@ -12,3 +12,5 @@
 /Cepres.IdentityServer/bin/Debug/netcoreapp3.1
 /Cepres.IdentityServer/obj
 /.vs/Cepres
+/Test/Cepres.Services.API.Test/bin/Debug/netcoreapp3.1
+/Test/Cepres.Services.API.Test/obj

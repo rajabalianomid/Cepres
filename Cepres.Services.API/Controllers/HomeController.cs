@@ -5,7 +5,7 @@ namespace Cepres.Service.API
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class HomeController : ControllerBase
     {
         [HttpGet("")]

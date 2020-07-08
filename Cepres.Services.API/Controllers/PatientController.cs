@@ -29,7 +29,7 @@ namespace Cepres.Services.API.Controllers
 
         [HttpGet]
         [Route("api/patient/get/{id}")]
-        public CommonResponse Get(int id)
+        public CommonResponse<PatientViewModel> Get(int id)
         {
             CommonResponse<PatientViewModel> response = new CommonResponse<PatientViewModel>();
             try
