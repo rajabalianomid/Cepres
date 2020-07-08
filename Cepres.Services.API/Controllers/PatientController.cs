@@ -9,12 +9,14 @@ using Cepres.Service;
 using Cepres.Service.API.Models;
 using Cepres.Services.API.Models;
 using FileManager.Service.API;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
 namespace Cepres.Services.API.Controllers
 {
     [ApiController]
+    [Authorize]
     public class PatientController : ControllerBase
     {
         private readonly IPatientService _patientService;

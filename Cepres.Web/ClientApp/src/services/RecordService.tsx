@@ -1,25 +1,27 @@
 ﻿import http from "../Http.Common";
 import { IPagination } from "../model/IPagination";
 import { IListRecord } from "../model/IRecord";
+import { ApiService } from "./ApiService";
 
 class RecordService {
     controller: string = "record";
+    apiService: ApiService = new ApiService();
 
     getAll(pagingData: IPagination<IListRecord[]>) {
-        return http.post(`/${this.controller}/getall`, pagingData);
+        return this.apiService.callApi(`/${this.controller}/getall`, 'post', pagingData);
     }
     get(id: any) {
-        return http.get(`/${this.controller}/get/${id}`);
+        return this.apiService.callApi(`/${this.controller}/get/${id}`, 'get');
     }
     create(data: any) {
         debugger;
-        return http.post(`/${this.controller}/add`, data);
+        return this.apiService.callApi(`/${this.controller}/add`, 'post', data);
     }
     update(data: any) {
-        return http.put(`/${this.controller}/update/`, data);
+        return this.apiService.callApi(`/${this.controller}/update/`, 'put', data);
     }
     delete(id: any) {
-        return http.delete(`/${this.controller}/remove/${id}`);
+        return this.apiService.callApi(`/${this.controller}/remove/${id}`, 'delete');
     }
 }
 

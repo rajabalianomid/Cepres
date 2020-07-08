@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';//, BrowserRouter as Router, Switch
 import { Layout } from './components/Layout';
-import { LayoutSimple } from './components/LayoutSimple';
 import { Home } from './components/Home/Home';
 import { CallBack } from './components/Home/CallBack';
 import { PatientList } from './components/Patient/PatientList';

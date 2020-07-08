@@ -1,34 +1,37 @@
 ﻿import http from "../Http.Common";
 import { IPagination } from "../model/IPagination";
 import { IListPatient } from "../model/IPatient";
+import { ApiService } from "./ApiService";
 
 class PatientService {
     controller: string = "patient";
+    apiService: ApiService = new ApiService();
 
     get(id: any) {
-        return http.get(`/${this.controller}/get/${id}`);
+        return this.apiService.callApi(`/${this.controller}/get/${id}`, 'get');
     }
     getByName(name: any) {
-        return http.get(`/${this.controller}/getByName/${name}`);
+        return this.apiService.callApi(`/${this.controller}/getByName/${name}`, 'get');
     }
     getAll(pagingData: IPagination<IListPatient[]>) {
-        return http.post(`/${this.controller}/getall`, pagingData);
+        debugger;
+        return this.apiService.callApi(`/${this.controller}/getall`, 'post', pagingData);
     }
     report() {
-        return http.get(`/${this.controller}/report`);
+        return this.apiService.callApi(`/${this.controller}/report`, 'get');
     }
     getSimilar(id: number) {
-        return http.get(`/${this.controller}/getSimilar/${id}`);
+        return this.apiService.callApi(`/${this.controller}/getSimilar/${id}`, 'get');
     }
     create(data: any) {
         debugger;
-        return http.post(`/${this.controller}/add`, data);
+        return this.apiService.callApi(`/${this.controller}/add`, 'post', data);
     }
     update(data: any) {
-        return http.put(`/${this.controller}/update/`, data);
+        return this.apiService.callApi(`/${this.controller}/update/`, 'put', data);
     }
     delete(id: any) {
-        return http.delete(`/${this.controller}/remove/${id}`);
+        return this.apiService.callApi(`/${this.controller}/remove/${id}`, 'delete');
     }
 }
 

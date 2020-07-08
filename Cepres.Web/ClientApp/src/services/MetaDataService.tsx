@@ -1,19 +1,21 @@
 ﻿import http from "../Http.Common";
+import { ApiService } from "./ApiService";
 
 class MetaDataService {
     controller: string = "patientmetadata";
+    apiService: ApiService = new ApiService();
 
     getAllByPatientId(patientId: any) {
-        return http.get(`/${this.controller}/gettall/${patientId}`);
+        return this.apiService.callApi(`/${this.controller}/gettall/${patientId}`, 'get');
     }
     report() {
-        return http.get(`/${this.controller}/report`);
+        return this.apiService.callApi(`/${this.controller}/report`, 'get');
     }
     create(data: any) {
-        return http.post(`/${this.controller}/add`, data);
+        return this.apiService.callApi(`/${this.controller}/add`, 'post', data);
     }
     delete(id: any) {
-        return http.delete(`/${this.controller}/remove/${id}`);
+        return this.apiService.callApi(`/${this.controller}/remove/${id}`, 'delete');
     }
 }
 
