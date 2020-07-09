@@ -21,7 +21,7 @@ export class _RecordInfo extends Component<{ recordId: any }, IRecordState> {
                 description: "",
                 bill: 0
             },
-            id: 0,
+            id: props.recordId,
             message: null,
             isUpdate: false,
             submitted: false,
